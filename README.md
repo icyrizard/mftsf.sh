@@ -1,4 +1,4 @@
-## Move Files to Separate Folders:
+## Move Files to Separate Folders - Introduction
 
 The motivation for this small bash script is that when you want to perform a big backup of files to an online cloud system, let's say to google drive, dropbox, icloud etc.. This can simply take forever if you try to upload all your files at once. In my case, I wanted to backup 32000 separate files (photo's) from an external drive directly to the cloud. This can take a couple of days to be uploaded, so the idea is to create smaller batches so that you can also turn your computer off and continue later.
 
