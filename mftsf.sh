@@ -1,17 +1,21 @@
 #!/bin/bash
-N=500
+N=10
 
 #Set Script Name variable
 SCRIPT=`basename ${BASH_SOURCE[0]}`
 
 function HELP {
     echo -e \\n"Help documentation for ${SCRIPT}."\\n
-    echo -e "Basic usage: $SCRIPT gradebook.zip"\\n
+    echo -e "Basic usage: $SCRIPT -o <inputDir> <outputDir>"\\n
     echo "Command line switches are optional. The following switches are
     recognized."
-    echo "-d --Set output directory. ${BOLD}$OUTPUT_DIR${NORM}."
-    echo -e "-h --Displays this help message. No further functions
-    are performed."\\n
+    echo "-i - Set input directory."
+    echo "-o - Set output directory (here all part directories will be made.)"
+    echo "-n - Set the size of all the part directories (how many files are \
+        going to be put in the new directory)"
+    echo "-s - How many files to skip until we start making directories and \
+        moving files"
+    echo -e "-h - Displays this help message. No further functions are performed."\\n
     echo -e "Example: ${BOLD}$SCRIPT -d assignment1
     gradebook.zip${NORM}"\\n
     exit 1
@@ -30,11 +34,11 @@ skip=0
 
 while getopts :i:o:n:s:h FLAG; do
     case $FLAG in
-        s)
-            skip=$OPTARG
-            ;;
         i)
             findDir=$OPTARG
+            ;;
+        s)
+            skip=$OPTARG
             ;;
         o)
             outputDir=$OPTARG
@@ -67,9 +71,10 @@ fi
 
 echo finddir $findDir
 echo outputDir $outputDir
+
 # shift ops, all optional args are now removed $1 will have to be the filename
 shift $((OPTIND-1))
-#
+
 echo "Creating folder '$outputDir' .. "
 mkdir -p $outputDir
 #
