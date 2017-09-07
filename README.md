@@ -2,7 +2,7 @@
 
 The motivation for this small bash script is that when you want to perform a big backup of files to an online cloud system, let's say to google drive, dropbox, icloud etc.. This can simply take forever if you try to upload all your files at once. In my case, I wanted to backup 32000 separate files (photo's) from an external drive directly to the cloud. This can take a couple of days to be uploaded, so the idea is to create smaller batches so that you can also turn your computer off and continue later.
 
-## What the tool does
+## What the Tool Does
 So, I wanted to move / copy these separate 32000 files into separate folders of size `N` and then select all the files in the folder and **drag-and-drop** or **select-and-upload** without the risk or annoying fact of uploading a lot of files twice. Because I don't exactly know where I left off the next day when I turned my computer off... sound familiar?
 
 So what I want it to subdivide all these 32000 files into separate folders like so (forget about how `tree` sorted it :))
